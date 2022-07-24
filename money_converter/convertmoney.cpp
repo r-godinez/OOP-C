@@ -1,3 +1,4 @@
+// convertmoney.cpp
 #include "convertmoney.h"
 #include <iostream>
 #include <iomanip>
@@ -25,6 +26,32 @@ void title()
 // -------------------------
 void Converter::menu()
 {
+	cout << "============================================\n";
+	cout << "1. Convert USD to Yen.\n";
+	cout << "2. Convert USD to Euros.\n";
+	cout << "3. Convert USD to Pesos.\n";
+	cout << "4. Convert USD to Yen, Euros, & Pesos.\n";
+	cout << "============================================\n";
+
+	switch (choice)
+	{
+	case 1:
+		convertToYen(dollars, yen);
+		break;
+	case 2:
+		convertToEuros(dollars, euros);
+		break;
+	case 3:
+		convertToPesos(dollars, pesos);
+		break;
+	case 4:
+		convertAll(dollars, euros, pesos, yen);
+		break;
+	default:
+		cout << "Invalid input. Error!!!\n";
+
+		break;
+	}
 }
 // -------------------------
 void Converter::convertAll(double dollars, double &euros, double &pesos, double &yen)
@@ -58,7 +85,13 @@ double Converter::convertToPesos(double dollars, double &pesos)
 // -------------------------
 void Converter::setChoice()
 {
-	// validate input
 	cin >> choice;
+	// validate input
+	while (!(cin >> choice))
+	{
+		cout << "Incorrect value!";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	}
 	this->choice = choice;
 }

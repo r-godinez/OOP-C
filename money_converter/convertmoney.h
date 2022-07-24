@@ -1,3 +1,4 @@
+// convertmoney.h
 #ifndef CONVERTMONEY_H
 #define CONVERTMONEY_H
 class Converter

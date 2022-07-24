@@ -1,3 +1,4 @@
+// main.cpp
 // This program will input American money and
 // convert it to foreign currency
 #include "convertmoney.cpp"
@@ -10,6 +11,11 @@ int main()
     c().title();
     c().menu();
     c().setChoice();
+
+    do
+    {
+        c().menu();
+    } while (choice);
 
     return 0;
 }
