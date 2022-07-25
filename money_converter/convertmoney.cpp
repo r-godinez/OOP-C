@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <cstdlib>
 // used to get stream size
-#include <ios>
 // used to get numeric limits
 #include <limits>
 using namespace std;
@@ -70,12 +69,13 @@ double Converter::convertToPesos(double balance)
 // -------------------------
 void Converter::setChoice()
 {
+	int x;
 	// validate input - Need to test
-	while (!(cin >> choice))
+	while (!(cin >> x))
 	{
 		cout << "Incorrect value!";
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
-	this->choice = choice;
+	x = choice;
 }
