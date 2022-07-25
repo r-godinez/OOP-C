@@ -5,17 +5,36 @@
 
 int main()
 {
-    Converter c();
+    Converter c;
+    double balance = 0;
     cout << fixed << showpoint << setprecision(2);
 
-    c().title();
-    c().menu();
-    c().setChoice();
+    c.title();
+    c.menu();
+    c.setChoice();
 
-    do
+    while (c.choice <= 4 && c.choice >= 1)
     {
-        c().menu();
-    } while (choice);
+        switch (c.choice)
+        {
+        case 1:
+            balance = c.convertToYen(balance);
+            break;
+        case 2:
+            balance = c.convertToEuros(balance);
+            break;
+        case 3:
+            balance = c.convertToPesos(balance);
+            break;
+        case 4:
+            c.convertAll(balance);
+            break;
+        default:
+            cout << "Invalid input. Error!!!\n";
+
+            break;
+        }
+    }
 
     return 0;
 }

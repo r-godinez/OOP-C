@@ -3,8 +3,10 @@
 #define CONVERTMONEY_H
 class Converter
 {
-private:
+public:
     int choice;
+
+private:
     bool usr;
     double dollars;
     double euros;
@@ -16,10 +18,10 @@ public:
     ~Converter();
     void title();
     void menu();
-    void convertAll(double dollars, double &euros, double &pesos, double &yen);
-    double convertToYen(double dollars, double &yen);
-    double convertToEuros(double dollars, double &euros);
-    double convertToPesos(double dollars, double &pesos);
+    void convertAll(double balance);
+    double convertToYen(double balance);
+    double convertToEuros(double balance);
+    double convertToPesos(double balance);
     void setChoice();
 };
 #endif

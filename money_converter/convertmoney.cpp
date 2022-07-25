@@ -1,8 +1,13 @@
 // convertmoney.cpp
-#include "convertmoney.h"
 #include <iostream>
+
+#include "convertmoney.h"
 #include <iomanip>
 #include <cstdlib>
+// used to get stream size
+#include <ios>
+// used to get numeric limits
+#include <limits>
 using namespace std;
 
 Converter::Converter()
@@ -32,61 +37,40 @@ void Converter::menu()
 	cout << "3. Convert USD to Pesos.\n";
 	cout << "4. Convert USD to Yen, Euros, & Pesos.\n";
 	cout << "============================================\n";
-
-	switch (choice)
-	{
-	case 1:
-		convertToYen(dollars, yen);
-		break;
-	case 2:
-		convertToEuros(dollars, euros);
-		break;
-	case 3:
-		convertToPesos(dollars, pesos);
-		break;
-	case 4:
-		convertAll(dollars, euros, pesos, yen);
-		break;
-	default:
-		cout << "Invalid input. Error!!!\n";
-
-		break;
-	}
 }
 // -------------------------
-void Converter::convertAll(double dollars, double &euros, double &pesos, double &yen)
+void Converter::convertAll(double balance)
 {
 	double e, p, y;
-	e = dollars * euros;
+	e = balance * euros;
 	cout << "\n\nEuros: ";
 	cout << e;
-	p = dollars * pesos;
+	p = balance * pesos;
 	cout << "\nPesos: ";
 	cout << p;
-	y = dollars * yen;
+	y = balance * yen;
 	cout << "\nYen: ";
 	cout << y << endl;
 }
 // -------------------------
-double Converter::convertToYen(double dollars, double &yen)
+double Converter::convertToYen(double balance)
 {
-	return (dollars * yen);
+	return (balance * yen);
 }
 // -------------------------
-double Converter::convertToEuros(double dollars, double &euros)
+double Converter::convertToEuros(double balance)
 {
-	return (dollars * euros);
+	return (balance * euros);
 }
 // -------------------------
-double Converter::convertToPesos(double dollars, double &pesos)
+double Converter::convertToPesos(double balance)
 {
-	return (dollars * pesos);
+	return (balance * pesos);
 }
 // -------------------------
 void Converter::setChoice()
 {
-	cin >> choice;
-	// validate input
+	// validate input - Need to test
 	while (!(cin >> choice))
 	{
 		cout << "Incorrect value!";
