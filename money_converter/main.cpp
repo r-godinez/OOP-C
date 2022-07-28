@@ -18,7 +18,7 @@ int main()
     {
         usr.menu();
         usr.validateChoice();
-        cout << "" usr.setBalance();
+        usr.setBalance();
         usr.selection();
     }
 
