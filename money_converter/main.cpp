@@ -1,21 +1,27 @@
+// --------------------------------------
 // main.cpp
-// This program will input American money and
-// convert it to foreign currency
+// --------------------------------------
+// This program will input American money and convert it to foreign currency
+// --------------------------------------
 #include "convertmoney.cpp"
-
+// --------------------------------------
 int main()
 {
-    Converter c();
-    cout << fixed << showpoint << setprecision(2);
+    Converter usr;
+    int selection = 0;
+    int balance = 0;
 
-    c().title();
-    c().menu();
-    c().setChoice();
+    // cout << fixed << showpoint << setprecision(2);
+    usr.title();
 
-    do
+    while (usr.getActivity())
     {
-        c().menu();
-    } while (choice);
+        usr.menu();
+        usr.validateChoice();
+        cout << "" usr.setBalance();
+        usr.selection();
+    }
 
     return 0;
 }
+// --------------------------------------

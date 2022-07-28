@@ -1,4 +1,6 @@
+// ------------------------------------------
 // convertmoney.h
+// ------------------------------------------
 #ifndef CONVERTMONEY_H
 #define CONVERTMONEY_H
 class Converter
@@ -12,14 +14,47 @@ private:
     double yen;
 
 public:
+    // default constructor
     Converter();
+    // default deconstructor
     ~Converter();
+    // prompt
     void title();
     void menu();
-    void convertAll(double dollars, double &euros, double &pesos, double &yen);
-    double convertToYen(double dollars, double &yen);
-    double convertToEuros(double dollars, double &euros);
-    double convertToPesos(double dollars, double &pesos);
-    void setChoice();
+    // choice selection
+    void validateChoice();
+    void setBalance();
+    void selection();
+    void quitProgram();
+    // converting methods
+    void convertAll(double, double &, double &, double &);
+    double convertToYen(double, double &);
+    double convertToEuros(double, double &);
+    double convertToPesos(double, double &);
+    // access variable values
+    int getChoice() const
+    {
+        return choice;
+    }
+    bool getActivity() const
+    {
+        return usr;
+    }
+    double getDollars() const
+    {
+        return dollars;
+    }
+    double getEuros() const
+    {
+        return euros;
+    }
+    double getPesos() const
+    {
+        return pesos;
+    }
+    double getYen() const
+    {
+        return yen;
+    }
 };
 #endif
